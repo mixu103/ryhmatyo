@@ -20,7 +20,6 @@ h1 {
     grid-template-columns: auto auto auto auto auto;
     justify-content: center;
     font-family: 'Meiryo UI', Consolas​, monospace;
-    margin-bottom: 50px;
 }
 
 .suodatus {
@@ -74,6 +73,7 @@ footer{
     background-color: #2c6e49;
     width: auto;
     min-height: 200px;
+    margin-top: 100px;
 }
 
 .f1{
@@ -89,8 +89,45 @@ footer{
     padding-left: 100px;
     padding-top: 10px;
 }
+.f3{
+    width: 33%;
+    margin: 50px;
+    margin-left: 150px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    color: black;
+    text-decoration: none;
+}
+a:link {
+  color: pink;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: pink;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: pink;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: pink;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
 .f4{
     width: 33%;
+    margin-right: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
@@ -155,21 +192,16 @@ footer{
 
         </div>
         <div class="f3">
-            <h3>Turun kukkakauppa</h3>
+            <a style="margin-bottom: 15px;" href="index.html" >Etusivu</a>
+            <a href="tuotteet.html">Tuotteet</a>
 
-            <p style="margin-bottom: 0;">Linnankatu 4</p>
-            <p style="margin-top: 5px;" >20100 Turku</p>
-
-            <p style="margin-bottom: 0;">Puhelinnumero</p>
-            <p style="margin-top: 2px;">Sähköposti@gmail.com</p>
-
-            <p>Avoinna: Ma-Pe 10-15 viikonloppuisin suljettu</p>
+            <a style="margin-bottom: 15; margin-top: 15px;" href="sijainti.html">Sijainti</a>
 
         </div>
         <div class="f4">
             <div class="ff4">
-                <img src="instagram.png" alt="logo.png" style="max-height: 25px; max-width: 25px; margin: 10px;">
-                <img src="facebook.png" alt="logo.png" style="max-height: 25px; max-width: 25px; margin: 10px;">
+                <a href="https://www.instagram.com/"><img src="instagram.png" alt="logo.png"  style="max-height: 25px; max-width: 25px; margin: 10px;"></a>
+                <a href="https://www.facebook.com/"><img src="facebook.png" alt="logo.png"  style="max-height: 25px; max-width: 25px; margin: 10px;"></a>
                     <p style="margin-top: 145px;">Trademark</p>
             </div>
         </div>
