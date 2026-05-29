@@ -57,10 +57,15 @@ h1 {
     width: 100px;
     background-color: #fefee3;
 
-    display: flex;
+    display: none;
+
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.show {
+    display: flex;
 }
 
 .kortit img {
@@ -143,40 +148,96 @@ a:active {
 }
 
 </style>
+
+<script>
+filterSelection("all")
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("kortit");
+  if (c == "all") c = "";
+  // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+// Show filtered elements
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {
+      element.className += " " + arr2[i];
+    }
+  }
+}
+
+// Piilota elementit, jotka eivät ole valittu 
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+// Piilota elementit, jotka eivät ole valittu 
+var btnContainer = document.getElementById("suodatus");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script>
+
 </head>
 <body style="background-color: #4c956c; margin: 0;">
 
 <h1>Suodata tuloksia</h1>
 
-<div class="suodatus">
-    <button>Nappi 1</button>
-    <button>Nappi 2</button>
-    <button>Nappi 3</button>
-    <button>Nappi 4</button>
-    <button>Nappi 5</button>
+<div id="suodatus" class="suodatus">
+    <button class="btn active" onclick="filterSelection('all')">Näytä kaikki</button>
+    <button class ="btn" onclick="filterSelection('naimis')">Kukat naimisiin</button>
+    <button class ="btn" onclick="filterSelection('hautajais')">Kukat hautajaisiin</button>
+    <button class ="btn" onclick="filterSelection('valmistujais')">Kukat valmistujaisiin</button>
+    <button class ="btn" onclick="filterSelection('puutarha')">Kukat puutarhaan</button>
+    <button class ="btn" onclick="filterSelection('kimppu')">Kukkakimput</button>
 </div>
 
 <div class="container">
-    <div class="kortit">Tuotteen nimi tähän<img src="pikkukukka.png">Hinta tähän</div>
-    <div class="kortit">Tuotteen nimi tähän<img src="pikkukukka.png">Hinta tähän</div>
-    <div class="kortit">Tuotteen nimi tähän<img src="pikkukukka.png">Hinta tähän</div>
-    <div class="kortit">Tuotteen nimi tähän<img src="pikkukukka.png">Hinta tähän</div>
-    <div class="kortit">Tuotteen nimi tähän<img src="pikkukukka.png">Hinta tähän</div>
-    <div class="kortit">Tuotteen nimi tähän<img src="pikkukukka.png">Hinta tähän</div>
-    <div class="kortit">Tuotteen nimi tähän<img src="pikkukukka.png">Hinta tähän</div>
-    <div class="kortit">Tuotteen nimi tähän<img src="pikkukukka.png">Hinta tähän</div>
-    <div class="kortit">Tuotteen nimi tähän<img src="pikkukukka.png">Hinta tähän</div>
-    <div class="kortit">Tuotteen nimi tähän<img src="pikkukukka.png">Hinta tähän</div>
-    <div class="kortit">Tuotteen nimi tähän<img src="pikkukukka.png">Hinta tähän</div>
-    <div class="kortit">Tuotteen nimi tähän<img src="pikkukukka.png">Hinta tähän</div>
-    <div class="kortit">Tuotteen nimi tähän<img src="pikkukukka.png">Hinta tähän</div>
-    <div class="kortit">Tuotteen nimi tähän<img src="pikkukukka.png">Hinta tähän</div>
-    <div class="kortit">Tuotteen nimi tähän<img src="pikkukukka.png">Hinta tähän</div>
-    <div class="kortit">Tuotteen nimi tähän<img src="pikkukukka.png">Hinta tähän</div>
-    <div class="kortit">Tuotteen nimi tähän<img src="pikkukukka.png">Hinta tähän</div>
-    <div class="kortit">Tuotteen nimi tähän<img src="pikkukukka.png">Hinta tähän</div>
-    <div class="kortit">Tuotteen nimi tähän<img src="pikkukukka.png">Hinta tähän</div>
-    <div class="kortit">Tuotteen nimi tähän<img src="pikkukukka.png">Hinta tähän</div>
+    <div class="kortit naimis">Naimis 1<img src="pikkukukka.png">Hinta tähän</div>
+    <div class="kortit naimis">Naimis 2<img src="pikkukukka.png">Hinta tähän</div>
+    <div class="kortit naimis">Naimis 3<img src="pikkukukka.png">Hinta tähän</div>
+    <div class="kortit naimis">Naimis 4<img src="pikkukukka.png">Hinta tähän</div>
+    <div class="kortit naimis">Naimis 5<img src="pikkukukka.png">Hinta tähän</div>
+    <div class="kortit naimis">Naimis 6<img src="pikkukukka.png">Hinta tähän</div>
+    <div class="kortit hautajais">Hautajais 1<img src="pikkukukka.png">Hinta tähän</div>
+    <div class="kortit hautajais">Hautajais 2<img src="pikkukukka.png">Hinta tähän</div>
+    <div class="kortit hautajais">Hautajais 3<img src="pikkukukka.png">Hinta tähän</div>
+    <div class="kortit hautajais">Hautajais 4<img src="pikkukukka.png">Hinta tähän</div>
+    <div class="kortit hautajais">Hautajais 5<img src="pikkukukka.png">Hinta tähän</div>
+    <div class="kortit valmistujais">Valmistjais 1<img src="pikkukukka.png">Hinta tähän</div>
+    <div class="kortit valmistujais">Valmistjais 2<img src="pikkukukka.png">Hinta tähän</div>
+    <div class="kortit valmistujais">Valmistjais 3<img src="pikkukukka.png">Hinta tähän</div>
+    <div class="kortit valmistujais">Valmistjais 4<img src="pikkukukka.png">Hinta tähän</div>
+    <div class="kortit valmistujais">Valmistjais 5<img src="pikkukukka.png">Hinta tähän</div>
+    <div class="kortit puutarha">Puutarha 1<img src="pikkukukka.png">Hinta tähän</div>
+    <div class="kortit puutarha">Puutarha 2<img src="pikkukukka.png">Hinta tähän</div>
+    <div class="kortit puutarha">Puutarha 3<img src="pikkukukka.png">Hinta tähän</div>
+    <div class="kortit puutarha">Puutarha 4<img src="pikkukukka.png">Hinta tähän</div>
+    <div class="kortit kimppu">Kimppu 1<img src="pikkukukka.png">Hinta tähän</div>
+    <div class="kortit kimppu">Kimppu 2<img src="pikkukukka.png">Hinta tähän</div>
+    <div class="kortit kimppu">Kimppu 3<img src="pikkukukka.png">Hinta tähän</div>
+    <div class="kortit kimppu">Kimppu 4<img src="pikkukukka.png">Hinta tähän</div>
 </div>
 
     <footer>
