@@ -58,6 +58,10 @@ footer{
     flex-direction: column;
     text-decoration: none;
 }
+
+.tausta{
+    background: url(Nimetön2.png) left top repeat;
+}
 a:link {
   color: pink;
   background-color: transparent;
@@ -96,14 +100,23 @@ a:active {
 
 }
 
+    .lisäteksti{
+        display: flex;
+        justify-self: center;
+        align-items: center;
+        max-width: fit-content;
+        height: 120px;
+        background-color: #4c956c;
+    }
+
 </style>
 </head>
-<body style="background-color: #4c956c; margin: 0;">
+<body style="background-color: #4c956c; margin: 0;" class="tausta">
 <div class="logo">
 <img style="text-align: center; margin-top: 20px;" src="logo.png">
 </div>
 
-<h1>Tähän voidaan laittaa tekstiä.</h1>
+<h1 class="lisäteksti">Tähän voidaan laittaa tekstiä.</h1>
 
 <div class="kartta">
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1967.6741400129247!2d22.270727252689873!3d60.45059484131136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x468c76fba846bd55%3A0x6d96f1fd3d73c9bc!2sLinnankatu%204%2C%2020100%20Turku!5e0!3m2!1sfi!2sfi!4v1779787680047!5m2!1sfi!2sfi" width="1000" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
